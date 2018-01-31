@@ -13,6 +13,8 @@ source:
     - https://cran.r-project.org/src/contrib/proj4_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
   sha256: 69d3171b3a2baa0dd3d8530d617b5acef0c5b0a261ecd044513af7f8b6a2231b
+  patches:
+    - fix_libs.patch
 
 build:
   number: 0
