@@ -16,7 +16,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 1002
+  number: 1003
   skip: true  # [win]
 
   rpaths:
@@ -39,8 +39,6 @@ test:
   commands:
     - $R -e "library('proj4')"  # [not win]
     - "\"%R%\" -e \"library('proj4')\""  # [win]
-    - conda inspect linkages -p $PREFIX r-proj4  # [not win]
-    - conda inspect objects -p $PREFIX r-proj4  # [osx]
 
 about:
   home: http://www.rforge.net/proj4/
