@@ -16,7 +16,7 @@ source:
 build:
   merge_build_host: True  # [win]
   number: 1006
-  skip: false  # [win]
+  skip: true  # [win32]
 
   rpaths:
     - lib/R/lib/
