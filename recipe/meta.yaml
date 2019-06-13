@@ -11,22 +11,30 @@ source:
   fn: proj4_{{ version }}.tar.gz
   url:
     - https://cran.r-project.org/src/contrib/proj4_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
   sha256: 69d3171b3a2baa0dd3d8530d617b5acef0c5b0a261ecd044513af7f8b6a2231b
 
 build:
   merge_build_host: True  # [win]
-  number: 1005
-  skip: true  # [win]
+  number: 1006
+  skip: false  # [win]
 
   rpaths:
     - lib/R/lib/
     - lib/
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}sed               # [win]
+    - {{posix}}grep              # [win]
+    - {{posix}}autoconf
+    - {{posix}}automake          # [not win]
+    - {{posix}}automake-wrapper  # [win]
+    - {{posix}}pkg-config
+    - {{posix}}make
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - proj4
@@ -34,6 +42,7 @@ requirements:
   run:
     - r-base
     - proj4
+    - {{native}}gcc-libs         # [win]
 
 test:
   commands:
