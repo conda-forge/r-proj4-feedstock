@@ -17,10 +17,13 @@ build:
   merge_build_host: True  # [win]
   number: 1006
   skip: true  # [win32]
-
   rpaths:
     - lib/R/lib/
     - lib/
+  script: 
+    - "set LOCAL_SOFT=%CONDA_PREFIX%/Library/include"
+    - "set PATH=%CONDA_PREFIX%/Library/lib;%PATH%"
+  
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
