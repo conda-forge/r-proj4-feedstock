@@ -48,7 +48,7 @@ about:
     projections library. It allows transformation of geographic coordinates from one
     projection and/or datum to another.
   license_family: GPL2
-license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
