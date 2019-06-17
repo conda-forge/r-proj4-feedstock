@@ -3,7 +3,7 @@ About r-proj4
 
 Home: http://www.rforge.net/proj4/
 
-Package license: GPL-2
+Package license: GPL-2.0
 
 Feedstock license: BSD 3-Clause
 
@@ -15,7 +15,14 @@ Current build status
 ====================
 
 
-<table>
+<table><tr>
+    <td>Appveyor</td>
+    <td>
+      <a href="https://ci.appveyor.com/project/conda-forge/r-proj4-feedstock/branch/master">
+        <img alt="windows" src="https://img.shields.io/appveyor/ci/conda-forge/r-proj4-feedstock/master.svg?label=Windows">
+      </a>
+    </td>
+  </tr>
     
   <tr>
     <td>Azure</td>
@@ -42,16 +49,17 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-proj4-feedstock?branchName=master&jobName=osx&configuration=osx_" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=1467&branchName=master">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-proj4-feedstock?branchName=master&jobName=win&configuration=win_" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
       </details>
-    </td>
-  </tr>
-  <tr>
-    <td>Windows</td>
-    <td>
-      <img src="https://img.shields.io/badge/Windows-disabled-lightgrey.svg" alt="Windows disabled">
     </td>
   </tr>
 ![ppc64le disabled](https://img.shields.io/badge/ppc64le-disabled-lightgrey.svg)
@@ -151,4 +159,6 @@ Feedstock Maintainers
 
 * [@bgruening](https://github.com/bgruening/)
 * [@johanneskoester](https://github.com/johanneskoester/)
+* [@nawendt](https://github.com/nawendt/)
+* [@ocefpaf](https://github.com/ocefpaf/)
 

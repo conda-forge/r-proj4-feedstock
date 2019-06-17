@@ -13,19 +13,20 @@ source:
     - https://cran.r-project.org/src/contrib/proj4_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
   sha256: 69d3171b3a2baa0dd3d8530d617b5acef0c5b0a261ecd044513af7f8b6a2231b
+  patches:
+    - win.patch  # [win]
 
 build:
+  number: 1006
   merge_build_host: True  # [win]
-  number: 1005
-  skip: true  # [win]
 
   rpaths:
     - lib/R/lib/
     - lib/
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
+    - posix  # [win]
+    - {{ compiler('c') }}  # [not win]
     - {{ compiler('m2w64_c') }}  # [win]
   host:
     - r-base
@@ -42,13 +43,16 @@ test:
 
 about:
   home: http://www.rforge.net/proj4/
-  license: GPL-2
+  license: GPL-2.0
   summary: A simple interface to lat/long projection and datum transformation of the PROJ.4 cartographic
     projections library. It allows transformation of geographic coordinates from one
     projection and/or datum to another.
   license_family: GPL2
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
     - johanneskoester
     - bgruening
+    - nawendt
+    - ocefpaf
