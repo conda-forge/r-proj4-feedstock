@@ -17,7 +17,7 @@ source:
     - win.patch  # [win]
 
 build:
-  number: 1006
+  number: 1007
   merge_build_host: True  # [win]
 
   rpaths:
@@ -52,6 +52,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - conda-forge/r
     - johanneskoester
     - bgruening
     - nawendt
