@@ -17,7 +17,7 @@ source:
     - win.patch  # [win]
 
 build:
-  number: 1007
+  number: 1008
   merge_build_host: True  # [win]
 
   rpaths:
