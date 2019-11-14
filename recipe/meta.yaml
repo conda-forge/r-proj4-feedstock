@@ -16,7 +16,7 @@ source:
 
 build:
   merge_build_host: True  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -63,6 +63,7 @@ extra:
     - conda-forge/r
     - nawendt
     - ocefpaf
+    - xylar
 
 # Package: proj4
 # Version: 1.0-8.1
