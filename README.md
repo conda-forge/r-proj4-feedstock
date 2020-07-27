@@ -3,7 +3,7 @@ About r-proj4
 
 Home: http://www.rforge.net/proj4/
 
-Package license: GPL-2
+Package license: GPL-2.0-only
 
 Feedstock license: BSD-3-Clause
 
