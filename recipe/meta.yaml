@@ -50,7 +50,7 @@ test:
 
 about:
   home: http://www.rforge.net/proj4/
-  license: GPL-2
+  license: GPL-2.0-only
   summary: A simple interface to lat/long projection and datum transformation of the PROJ.4 cartographic projections library. It allows transformation of geographic
     coordinates from one projection and/or datum to another.
   license_family: GPL2
