@@ -5,11 +5,9 @@ Home: http://www.rforge.net/proj4/
 
 Package license: GPL-2.0-only
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-proj4-feedstock/blob/master/LICENSE.txt)
 
 Summary: A simple interface to lat/long projection and datum transformation of the PROJ.4 cartographic projections library. It allows transformation of geographic coordinates from one projection and/or datum to another.
-
-
 
 Current build status
 ====================
