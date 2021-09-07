@@ -11,6 +11,8 @@ source:
     - {{ cran_mirror }}/src/contrib/proj4_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
   sha256: 66857cbe5cba4930b18621070f9a7263ea0d8ddc3e5a035a051a1496e4e1da19
+  patches:
+    - win.patch  # [win]
 
 build:
   merge_build_host: true  # [win]
