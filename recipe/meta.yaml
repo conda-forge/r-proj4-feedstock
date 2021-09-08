@@ -36,6 +36,7 @@ requirements:
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
     - {{ posix }}tar               # [win]
+    - {{ posix }}gzip              # [win]
   host:
     - r-base
     - proj
