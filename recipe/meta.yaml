@@ -1,4 +1,4 @@
-{% set version = "1.0-10.1" %}
+{% set version = "1.0-11" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/proj4_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
-  sha256: 66857cbe5cba4930b18621070f9a7263ea0d8ddc3e5a035a051a1496e4e1da19
+  sha256: c5f186530267005d53cc2e86849613b254ca4515a8b10310146f712d45a1d11d
 
 build:
   merge_build_host: true  # [win]
-  number: 4
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
