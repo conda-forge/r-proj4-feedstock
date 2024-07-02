@@ -1,6 +1,5 @@
 {% set version = "1.0-14" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-proj4
@@ -13,8 +12,7 @@ source:
   sha256: d3d571da92136666dd3658b6006a7d4d4254cdeada5cda21b05b0c0e692a00b6
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
@@ -43,7 +41,6 @@ requirements:
   run:
     - r-base
     - proj
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
