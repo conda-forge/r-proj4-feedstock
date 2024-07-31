@@ -1,18 +1,20 @@
---- proj4.orig/src/Makevars.win	2012-08-05 01:54:10.000000000 +0000
-+++ proj4/src/Makevars.win	2019-06-17 16:24:17.118428700 +0000
-@@ -1,13 +1,2 @@
--## use local winbuilder libraries if present - no need to set any paths in that case
--ifeq ($(strip $(shell if test -e "$(LOCAL_SOFT)/include/proj_api.h"; then echo 1; fi)),1)
--PKG_LIBS = -lproj
--else
--## detect 64-bit Windows
--ifeq ($(WIN),64)
--PKG_LIBS = -Lwin64 -lproj
--PKG_CPPFLAGS = -Iwin64
--else
--PKG_LIBS = -Lwin32 -lproj
--PKG_CPPFLAGS = -Iwin32
--endif
--endif
-+PKG_LIBS = -L$(LIBRARY_LIB) -Lwin64 -lproj
-+PKG_CPPFLAGS = -Iwin64 -I$(LIBRARY_INC)
+From 717e808c78b045444a36986c19f66e538f359f8c Mon Sep 17 00:00:00 2001
+From: Mervin Fansler <mervin.fansler@bric.ku.dk>
+Date: Wed, 31 Jul 2024 09:34:11 +0200
+Subject: [PATCH] minimal ucrt libs
+
+---
+ src/Makevars.ucrt | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
+index 98300d7..70a8478 100644
+--- a/src/Makevars.ucrt
++++ b/src/Makevars.ucrt
+@@ -1,4 +1,2 @@
+-## from Tomas, uses P6 API so verify on toolchain updates
+-LIBSHARPYUV = $(or $(and $(wildcard $(R_TOOLS_SOFT)/lib/libsharpyuv.a),-lsharpyuv),)
+-PKG_LIBS = -lproj -lsqlite3 -lcurl -lbcrypt -ltiff -ljpeg -lrtmp -lssl -lssh2 -lgcrypt -lcrypto -lgdi32 -lz -lzstd -lwebp $(LIBSHARPYUV) -llzma -lgdi32 -lcrypt32 -lidn2 -lunistring -liconv -lgpg-error -lws2_32 -lwldap32 -lwinmm -lstdc++
+-PKG_CPPFLAGS = -DUSE_PROJ6_API=1
++PKG_LIBS = -L$(LIBRARY_LIB) -lproj
++PKG_CPPFLAGS = -I$(LIBRARY_INC) -DUSE_PROJ6_API=1
