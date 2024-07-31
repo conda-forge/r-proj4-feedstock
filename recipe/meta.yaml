@@ -1,6 +1,5 @@
 {% set version = "1.0-14" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-proj4
@@ -11,20 +10,21 @@ source:
     - {{ cran_mirror }}/src/contrib/proj4_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
   sha256: d3d571da92136666dd3658b6006a7d4d4254cdeada5cda21b05b0c0e692a00b6
+  patches:
+    - patches/0001-minimal-ucrt-libs.patch
 
 build:
-  merge_build_host: true  # [win]
-  number: 2
+  number: 3
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - {{ compiler('c') }}              # [not win]
-    - {{ stdlib("c") }}                # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ stdlib("m2w64_c") }}          # [win]
+    - {{ compiler('c') }}          # [not win]
+    - {{ stdlib("c") }}            # [not win]
+    - {{ compiler('m2w64_c') }}    # [win]
+    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -42,8 +42,6 @@ requirements:
     - proj
   run:
     - r-base
-    - proj
-    - {{ native }}gcc-libs         # [win]
 
 test:
   commands:
@@ -64,18 +62,3 @@ extra:
     - nawendt
     - ocefpaf
     - xylar
-
-# Package: proj4
-# Version: 1.0-8.1
-# Title: A simple interface to the PROJ.4 cartographic projections library
-# Depends: R (>= 2.0.0)
-# Author: Simon Urbanek <simon.urbanek@r-project.org>
-# Maintainer: Simon Urbanek <simon.urbanek@r-project.org>
-# Description: A simple interface to lat/long projection and datum transformation of the PROJ.4 cartographic projections library. It allows transformation of geographic coordinates from one projection and/or datum to another.
-# SystemRequirements: proj 4.4.6 or higher (http://proj.maptools.org/)
-# License: GPL-2
-# URL: http://www.rforge.net/proj4/
-# Packaged: 2019-09-05 17:05:50 UTC; hornik
-# Repository: CRAN
-# Date/Publication: 2019-09-07 17:32:41 UTC
-# NeedsCompilation: yes
