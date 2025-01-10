@@ -14,7 +14,7 @@ source:
     - patches/0001-minimal-ucrt-libs.patch
 
 build:
-  number: 4
+  number: 5
   rpaths:
     - lib/R/lib/
     - lib/
@@ -37,6 +37,7 @@ requirements:
     - {{ posix }}zip               # [win]
     - {{ posix }}tar               # [win]
     - {{ posix }}gzip              # [win]
+    - cross-r-base {{ r_base }}    # [build_platform != target_platform]
   host:
     - r-base
     - proj
@@ -52,7 +53,6 @@ about:
   home: http://www.rforge.net/proj4/
   license: GPL-2.0-only
   summary: A simple interface to lat/long projection and datum transformation of the PROJ.4 cartographic projections library. It allows transformation of geographic coordinates from one projection and/or datum to another.
-  license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
 
