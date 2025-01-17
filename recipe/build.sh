@@ -2,11 +2,11 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-export LD_LIBRARY_PATH=$PREFIX/lib/:${LD_LIBRARY_PATH}
-export INCLUDE_PATH="${PREFIX}/include":${INCLUDE_PATH}
-export C_INCLUDE_PATH="${PREFIX}/include":${C_INCLUDE_PATH}
-export CPLUS_INCLUDE_PATH="${PREFIX}/include":${CPLUS_INCLUDE_PATH}
-export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
+# export LD_LIBRARY_PATH=$PREFIX/lib/:${LD_LIBRARY_PATH}
+# export INCLUDE_PATH="${PREFIX}/include":${INCLUDE_PATH}
+# export C_INCLUDE_PATH="${PREFIX}/include":${C_INCLUDE_PATH}
+# export CPLUS_INCLUDE_PATH="${PREFIX}/include":${CPLUS_INCLUDE_PATH}
+# export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
 
 autoreconf --force --verbose --install
 $R CMD INSTALL --build . ${R_ARGS:-} || cat config.log
