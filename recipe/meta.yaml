@@ -38,6 +38,7 @@ requirements:
     - {{ posix }}tar               # [win]
     - {{ posix }}gzip              # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
+    - proj                         # [build_platform != target_platform]
   host:
     - r-base
     - proj

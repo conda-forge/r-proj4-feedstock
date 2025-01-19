@@ -10,7 +10,7 @@ set -o xtrace -o nounset -o pipefail -o errexit
 
 configure_args=""
 if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
-    configure_args="--configure_args='CXX=${CXX_FOR_BUILD} CC=${CC_FOR_BUILD}'"
+    configure_args="--configure-args='CXX=${CXX_FOR_BUILD} CC=${CC_FOR_BUILD}'"
 fi
 
 $R CMD INSTALL --build . ${configure_args} ${R_ARGS:-} || cat config.log
