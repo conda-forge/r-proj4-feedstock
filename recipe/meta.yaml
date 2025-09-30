@@ -1,4 +1,4 @@
-{% set version = "1.0-14" %}
+{% set version = "1.0-15" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,12 +9,12 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/proj4_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/proj4/proj4_{{ version }}.tar.gz
-  sha256: d3d571da92136666dd3658b6006a7d4d4254cdeada5cda21b05b0c0e692a00b6
+  sha256: eecc7d049d91e150d80682f8b75494010ad7c7d219c6845ab91a73213e88d314
   patches:
     - patches/0001-minimal-ucrt-libs.patch
 
 build:
-  number: 7
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
