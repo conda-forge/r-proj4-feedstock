@@ -1,20 +1,27 @@
-From 717e808c78b045444a36986c19f66e538f359f8c Mon Sep 17 00:00:00 2001
-From: Mervin Fansler <mervin.fansler@bric.ku.dk>
-Date: Wed, 31 Jul 2024 09:34:11 +0200
+From dadd798cd426cf64592dbdf328d749faa468f401 Mon Sep 17 00:00:00 2001
+From: Daniel Nachun <daniel.nachun@gmail.com>
+Date: Wed, 24 Dec 2025 11:55:56 -0600
 Subject: [PATCH] minimal ucrt libs
 
 ---
- src/Makevars.ucrt | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ src/Makevars.ucrt | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
 diff --git a/src/Makevars.ucrt b/src/Makevars.ucrt
-index 98300d7..70a8478 100644
+index eccc974..70a8478 100644
 --- a/src/Makevars.ucrt
 +++ b/src/Makevars.ucrt
-@@ -1,4 +1,2 @@
+@@ -1,8 +1,2 @@
 -## from Tomas, uses P6 API so verify on toolchain updates
--LIBSHARPYUV = $(or $(and $(wildcard $(R_TOOLS_SOFT)/lib/libsharpyuv.a),-lsharpyuv),)
--PKG_LIBS = -lproj -lsqlite3 -lcurl -lbcrypt -ltiff -ljpeg -lrtmp -lssl -lssh2 -lgcrypt -lcrypto -lgdi32 -lz -lzstd -lwebp $(LIBSHARPYUV) -llzma -lgdi32 -lcrypt32 -lidn2 -lunistring -liconv -lgpg-error -lws2_32 -lwldap32 -lwinmm -lstdc++
+-ifeq (,$(shell pkg-config --version 2>/dev/null))
+-  LIBSHARPYUV = $(or $(and $(wildcard $(R_TOOLS_SOFT)/lib/libsharpyuv.a),-lsharpyuv),)
+-  PKG_LIBS = -lproj -lsqlite3 -lcurl -lbcrypt -ltiff -ljpeg -lrtmp -lssl -lssh2 -lgcrypt -lcrypto -lgdi32 -lz -lzstd -lwebp $(LIBSHARPYUV) -llzma -lgdi32 -lcrypt32 -lidn2 -lunistring -liconv -lgpg-error -lws2_32 -lwldap32 -lwinmm -lstdc++
+-else
+-  PKG_LIBS = $(shell pkg-config --libs proj)
+-endif
 -PKG_CPPFLAGS = -DUSE_PROJ6_API=1
 +PKG_LIBS = -L$(LIBRARY_LIB) -lproj
 +PKG_CPPFLAGS = -I$(LIBRARY_INC) -DUSE_PROJ6_API=1
+-- 
+2.51.0
+
